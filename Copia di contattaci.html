@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Terminale</title>
+  <link rel="stylesheet" type="text/css" href="terminal_style.css">
+</head>
+<body>
+  <div class="terminal">
+    <div id="terminal-output"></div>
+    <div id="input-terminal">
+      <div class="terminal-command" id="terminal-prompt">[contact@anomalia]$</div>
+      <div class="terminal-command">
+        <input type="text" id="terminal-input" autofocus />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Funzione per gestire l'evento di pressione del tasto "Enter" nell'input del terminale
+    function handleTerminalInput(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+
+        // Ottieni il testo inserito dall'utente
+        const inputElement = document.getElementById("terminal-input");
+        const userInput = inputElement.value.trim();
+
+        // Se l'input non è vuoto, mostra l'output nel terminale
+        if (userInput !== "") {
+          const outputElement = document.getElementById("terminal-output");
+          const promptElement = document.getElementById("terminal-prompt");
+
+          // Mostra l'input dell'utente
+          outputElement.innerHTML += `<div class="terminal-command">${promptElement.innerHTML}${userInput}</div>`;
+          outputElement.innerHTML += `<div class="terminal-command">&gt; ${userInput}</div>`;
+
+          // Pulisci l'input del terminale
+          inputElement.value = "";
+
+          // Rimuovi il prompt precedente per un nuovo input
+          const oldPromptElements = document.querySelectorAll(".terminal-command[id='terminal-prompt']");
+          oldPromptElements[oldPromptElements.length - 1].remove();
+
+          // Visualizza il prompt per un nuovo input
+          outputElement.innerHTML += `<div class="terminal-command" id="terminal-prompt">${promptElement.innerHTML}</div>`;
+          inputElement.focus();
+        }
+      }
+    }
+
+    // Aggiungi un listener per l'evento "keydown" all'elemento di input del terminale
+    const inputElement = document.getElementById("terminal-input");
+    inputElement.addEventListener("keydown", handleTerminalInput);
+  </script>
+</body>
+</html>

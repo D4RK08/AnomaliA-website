@@ -1,0 +1,56 @@
+body {
+  background-color: black;
+  font-family: 'Courier New', monospace;
+  color: white;
+  padding: 20px;
+}
+
+.terminal {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  overflow: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-output {
+  color: green;
+  white-space: pre-wrap;
+}
+
+.terminal-command {
+  display: flex;
+  align-items: baseline;
+}
+
+.terminal-prompt {
+  color: green;
+  padding-right: 5px;
+}
+
+.terminal-input {
+  color: white;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  flex: 1;
+}
+#input-terminal {
+  display: flex;
+  align-items: baseline;
+}
+
+#terminal-prompt {
+  color: green;
+  padding-right: 5px;
+}
+
+#terminal-input {
+  color: white;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  flex: 1;
+}
