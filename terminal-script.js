@@ -11,6 +11,10 @@ function runProgram() {
     location.reload();
   } else if (userInput === "ciao"){
     output = "ciao benvenuto nell'assistenza AnomaliA";
+  }else if (userInput === "-h"){
+    output = ""
+  }else if (userInput === ""){
+    output = ""
   }
   
   const outputElement = document.getElementById("terminal-output");
